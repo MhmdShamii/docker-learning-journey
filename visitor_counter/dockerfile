@@ -1,0 +1,7 @@
+From python:3.11-slim
+
+workdir /app
+
+copy counter.py .
+
+cmd ["python", "counter.py"]

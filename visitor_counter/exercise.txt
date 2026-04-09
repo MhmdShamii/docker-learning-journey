@@ -1,0 +1,16 @@
+Goal: Create a containerized Python app that counts how many times it has been launched, using a volume to persist the count.
+
+1- Write a Python script called counter.py that reads a number from a file called /data/count.txt,
+    increments it by 1, prints the new count, and saves it back to the file. If the file doesn't exist yet,
+    start from 0.
+2- Write a Dockerfile that uses python:3.11-slim as the base, copies your script in, and runs it.
+3- Create a named volume called counter-data.
+4- Build and run the container with the volume mounted at /data.
+5- Run it multiple times. Each time you should see the count go up even though the container exits and you create a new one each time.
+
+Expected output after running it 3 times:
+
+Visit count: 1
+Visit count: 2
+Visit count: 3
+
