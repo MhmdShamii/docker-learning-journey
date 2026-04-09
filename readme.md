@@ -1,6 +1,6 @@
 # Docker Learning Journey
 
-> From zero to containerized — learning Docker step by step, building up to the [42 Inception project](https://github.com/42School).
+> From zero to containerized — learning Docker step by stepSSS.
 
 ## About
 
@@ -19,7 +19,7 @@ This repo documents my hands-on journey learning Docker from scratch. Each folde
 - [x] `.dockerignore` and build context
 
 ### Phase 3: Multi-Container World
-- [ ] Docker networking
+- [x] Docker networking
 - [ ] Docker Compose basics
 - [ ] Docker Compose advanced (depends_on, restart, env vars, secrets)
 
@@ -41,7 +41,7 @@ This repo documents my hands-on journey learning Docker from scratch. Each folde
 | Exercise | Lesson | Description |
 |----------|--------|-------------|
 | `visitor-counter/` | Volumes | Python app that counts launches using a named volume to persist data |
-
+| `mini-web-stack/` | Networking | Two-container setup with NGINX and a content writer sharing a volume over a custom network |
 ## Tools
 
 - **Docker Engine** on Linux

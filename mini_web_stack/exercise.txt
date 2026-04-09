@@ -1,0 +1,37 @@
+Goal:   Build a two-container setup where an NGINX web server serves a page that is stored on a shared volume,
+        and both containers communicate over a custom network.
+
+# What You Need to Build
+
+- Container 1 — Web Server (NGINX)
+
+Use the nginx:alpine image (no custom Dockerfile needed)
+Connect it to a custom network called web-network
+Map port 8080 on your machine to port 80 in the container
+Mount a named volume called web-content at /usr/share/nginx/html (that's where NGINX looks for website files)
+
+- Container 2 — Content Writer
+
+Use the alpine image
+Connect it to the same web-network
+Mount the same web-content volume at /site
+This container should create an index.html file at /site/index.html with any HTML content you want (get creative!)
+After writing the file, this container can exit — that's fine
+
+
+- Requirements
+
+Create the network first
+Create the volume first
+Run the content writer container to create the HTML file
+Run the NGINX container
+Visit localhost:8080 in your browser and see your page
+Bonus: From inside the NGINX container, try to ping the content writer by name — what happens and why?
+
+- What This Tests
+
+Creating and using custom networks
+Creating and sharing named volumes between containers
+Port mapping
+Understanding that the volume persists the data even though the writer container exits
+
