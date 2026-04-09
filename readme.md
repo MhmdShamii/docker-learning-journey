@@ -16,7 +16,7 @@ This repo documents my hands-on journey learning Docker from scratch. Each folde
 
 ### Phase 2: Data & Storage 🔄
 - [x] Volumes — persisting data across containers
-- [ ] `.dockerignore` and build context
+- [x] `.dockerignore` and build context
 
 ### Phase 3: Multi-Container World
 - [ ] Docker networking
