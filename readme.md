@@ -24,9 +24,9 @@ This repo documents my hands-on journey learning Docker from scratch. Each folde
 - [x] Docker Compose advanced (depends_on, restart, env vars, secrets)
 
 ### Phase 4: Real-World Practices
-- [ ] Environment variables and secrets management
-- [ ] PID 1 and process management
-- [ ] Entrypoint scripts
+- [x] Environment variables and secrets management
+- [x] PID 1 and process management
+- [x] Entrypoint scripts
 - [ ] Dockerfile best practices (layer caching, multi-stage builds)
 
 ### Phase 5: Full Stack Project

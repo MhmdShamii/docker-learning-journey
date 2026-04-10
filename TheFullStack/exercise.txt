@@ -1,0 +1,62 @@
+# Phase 5: Building the Full Stack
+
+## Overview
+
+In this phase, we build each multi container and services.
+Each lesson focuses on one piece. By the end, we connect everything together.
+
+## Lessons
+
+### Lesson 13 — NGINX with TLS/SSL
+- What TLS/SSL is and why HTTPS matters
+- Generating self-signed SSL certificates
+- Writing an NGINX configuration file for HTTPS (port 443)
+- Configuring NGINX as a reverse proxy to forward requests to WordPress (PHP-FPM)
+- Writing the NGINX Dockerfile and entrypoint script
+- Testing HTTPS locally
+
+### Lesson 14 — MariaDB
+- What MariaDB is (MySQL-compatible database)
+- Writing the MariaDB Dockerfile
+- Writing the entrypoint script:
+  - Reading secrets (root password, user password)
+  - Initializing the database on first run
+  - Creating the WordPress database and user
+  - Idempotent setup (skip if already initialized)
+- Configuring MariaDB to accept connections from other containers
+- Testing the database independently
+
+### Lesson 15 — WordPress + PHP-FPM
+- What WordPress and PHP-FPM are
+- Writing the WordPress Dockerfile
+- Installing wp-cli (WordPress command-line tool)
+- Writing the entrypoint script:
+  - Waiting for MariaDB to be ready
+  - Downloading and configuring WordPress
+  - Creating the admin user and a regular user
+  - Idempotent setup (skip if already installed)
+- Running PHP-FPM in foreground mode
+
+### Lesson 16 — Connecting Everything Together
+- Writing the final docker-compose.yml
+- Defining all three services (nginx, wordpress, mariadb)
+- Setting up the shared network
+- Configuring named volumes with local driver (stored at /home/login/data)
+- Wiring up secrets and environment variables
+- The .env file
+- The secrets folder
+- Testing the full stack end to end
+- Troubleshooting common issues
+
+### Lesson 17 — Makefile Orchestration
+- What the Makefile does in this project
+- Creating data directories on the host
+- Configuring the domain name (login.42.fr → 127.0.0.1)
+- Makefile targets:
+  - all: build and start everything
+  - up: start the containers
+  - down: stop and remove containers
+  - clean: remove containers, images, volumes
+  - fclean: full nuclear cleanup
+  - re: clean and rebuild
+- Final validation checklist
