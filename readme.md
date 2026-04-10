@@ -20,7 +20,7 @@ This repo documents my hands-on journey learning Docker from scratch. Each folde
 
 ### Phase 3: Multi-Container World
 - [x] Docker networking
-- [ ] Docker Compose basics
+- [x] Docker Compose basics
 - [ ] Docker Compose advanced (depends_on, restart, env vars, secrets)
 
 ### Phase 4: Real-World Practices

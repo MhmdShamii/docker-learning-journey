@@ -1,0 +1,25 @@
+services:
+  content_writer:
+    image: alpine
+    volumes:
+      - web-volume:/site
+    networks:
+      - web-network
+    command: sh -c "echo '<h1>Hello from Docker Compose!</h1>' > /site/index.html"
+
+  web_server:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - web-volume:/usr/share/nginx/html
+    networks:
+      - web-network
+    depends_on:
+      - content_writer
+
+volumes:
+  web-volume:
+
+networks:
+  web-network:
