@@ -1,0 +1,26 @@
+services:
+  note_writer:
+    build: ./note-writer
+    volumes:
+      - notes-data:/data
+    networks:
+      - notes-network
+    environment:
+      - APP_NAME=${APP_NAME}
+    
+  note_reader:
+    build: ./note-reader
+    volumes:
+      - notes-data:/data
+    networks:
+      - notes-network
+    environment:
+      - APP_NAME=${APP_NAME}
+    depends_on:
+      - note_writer
+
+volumes:
+  notes-data:
+
+networks:
+  notes-network:

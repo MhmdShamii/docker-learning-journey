@@ -21,7 +21,7 @@ This repo documents my hands-on journey learning Docker from scratch. Each folde
 ### Phase 3: Multi-Container World
 - [x] Docker networking
 - [x] Docker Compose basics
-- [ ] Docker Compose advanced (depends_on, restart, env vars, secrets)
+- [x] Docker Compose advanced (depends_on, restart, env vars, secrets)
 
 ### Phase 4: Real-World Practices
 - [ ] Environment variables and secrets management
@@ -37,11 +37,12 @@ This repo documents my hands-on journey learning Docker from scratch. Each folde
 - [ ] Makefile orchestration
 
 ## Exercises
-
 | Exercise | Lesson | Description |
 |----------|--------|-------------|
 | `visitor-counter/` | Volumes | Python app that counts launches using a named volume to persist data |
 | `mini-web-stack/` | Networking | Two-container setup with NGINX and a content writer sharing a volume over a custom network |
+| `note-keeper/` | Docker Compose | Two-service Compose setup with a note writer and reader sharing a volume, custom network, and env variables |
+
 ## Tools
 
 - **Docker Engine** on Linux

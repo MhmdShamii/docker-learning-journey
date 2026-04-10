@@ -1,0 +1,70 @@
+Goal: Build a Docker Compose setup with two containers that work together.
+
+What You Need to Build
+Container 1 — Note Writer (custom image)
+
+Create a folder called note-writer/ with a Dockerfile and a Python script
+The Python script should ask the user for a note, then save it to /data/notes.txt (append mode so notes pile up)
+The script should keep asking for notes in a loop until the user types "exit"
+Mount a named volume at /data
+
+Container 2 — Note Reader (custom image)
+
+Create a folder called note-reader/ with a Dockerfile and a Python script
+The Python script should read /data/notes.txt and print all notes
+Mount the same named volume at /data
+
+Requirements
+
+Write everything in a single docker-compose.yml
+Use build: to build both images from their Dockerfiles
+Both services share a named volume called notes-data
+Both services are on a custom network called notes-network
+Use restart: no for both (since they're meant to exit)
+Include a .env file with a variable called APP_NAME=NoteKeeper and pass it to both containers — have the Python scripts print it at startup like "Welcome to NoteKeeper!"
+
+Your folder structure should look like this
+note-keeper/
+├── docker-compose.yml
+├── .env
+├── note-writer/
+│   ├── Dockerfile
+│   └── writer.py
+└── note-reader/
+    ├── Dockerfile
+    └── reader.py
+
+
+How it should work
+bash# Start the writer and type some notes
+docker compose run note-writer
+
+# Welcome to NoteKeeper!
+# Enter a note (or 'exit' to quit): Hello world
+# Note saved!
+# Enter a note (or 'exit' to quit): Docker is awesome
+# Note saved!
+# Enter a note (or 'exit' to quit): exit
+# Goodbye!
+
+# Now read all notes
+docker compose run note-reader
+
+# Welcome to NoteKeeper!
+# === Your Notes ===
+# Hello world
+# Docker is awesome
+What This Tests
+
+Writing a docker-compose.yml from scratch
+Using build: to build custom images
+Shared named volumes between services
+Environment variables from a .env file
+The full flow: Dockerfiles → Compose → build → run
+
+Hints
+
+Use input() in Python for getting user input
+Use docker compose run instead of docker compose up since these are interactive
+Open files in append mode with "a" to keep adding notes
+Remember to handle the case where notes.txt doesn't exist yet in the reader
